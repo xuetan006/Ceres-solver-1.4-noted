@@ -68,8 +68,16 @@ namespace examples {
 //
 //   residuals = I^{1/2) * error
 // where I is the information matrix which is the inverse of the covariance.
+// 代价函数
 class PoseGraph3dErrorTerm {
  public:
+  /**
+  * @brief 构造函数
+  * 
+  * @param[in] t_ab_measured           节点间约束
+  * @param[in] sqrt_information        信息矩阵
+  * @return void                     
+  */
   PoseGraph3dErrorTerm(const Pose3d& t_ab_measured,
                        const Eigen::Matrix<double, 6, 6>& sqrt_information)
       : t_ab_measured_(t_ab_measured), sqrt_information_(sqrt_information) {}
